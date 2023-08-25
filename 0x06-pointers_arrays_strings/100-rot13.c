@@ -1,3 +1,9 @@
+/**
+ * rot13 - encodes a string using rot13
+ * @str: string to encode
+ * Return: string
+ **/
+
 char *rot13(char *str)
 {
 	int i, j;
