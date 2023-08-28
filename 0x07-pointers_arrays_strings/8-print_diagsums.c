@@ -17,15 +17,23 @@
 
 void print_diagsums(int *a, int size)
 {
-	int i, sum1 = 0, sum2 = 0;
+	int i, j;
+	int sum = 0;
+	int sum2 = 0;
+	int *p = a;
 
-	for (i = 0; i < size; i ++)
+	for (i = 0; i < size; i++)
 	{
-		int index_diag1 = i * size + i;
-		int index_diag2 = i * size + (size - 1 - i);
-
-		sum1 += a[index_diag1];
-		sum2 += a[index_diag2];
+		for (j = 0; j < size; j++)
+		{
+			if (i == j)
+				sum += p[j * size + i];
+		}
 	}
-	printf("%d, %d\n", sum1, sum2);
+	for (i = size - 1; i >= 0; i--)
+	{
+		sum2 += a[i * size + (size - i - 1)];
+	}
+
+	printf("%d, %d\n", sum, sum2);
 }
